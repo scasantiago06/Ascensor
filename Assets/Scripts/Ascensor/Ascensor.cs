@@ -7,16 +7,17 @@ public class Ascensor : MonoBehaviour
     public GameObject CanvasScene;
     public GameObject Puerta;
     public GameObject[] PuertasExterna;
-    public Transform PisoUno;
-    public Transform PisoDos;
-    public Transform PisoTres;
-    public Transform PisoCuatro;
-    public Transform PisoCinco;
-    public Transform PisoSeis;
-    public Transform PisoSiete;
-    public Transform PisoOcho;
-    public Transform PisoNueve;
-    public Transform PisoDiez;
+    //public Transform PisoUno;
+    //public Transform PisoDos;
+    //public Transform PisoTres;
+    //public Transform PisoCuatro;
+    //public Transform PisoCinco;
+    //public Transform PisoSeis;
+    //public Transform PisoSiete;
+    //public Transform PisoOcho;
+    //public Transform PisoNueve;
+    //public Transform PisoDiez;
+    public Transform[] objetivos;
     Transform target;
     GameObject PuertaEx;
     public float speed;
@@ -31,67 +32,54 @@ public class Ascensor : MonoBehaviour
         switch (seleccionPiso)
         {
             case "PisoUno":
-                Debug.Log("Mover el piso 1");
-                target = PisoUno;
+                target = objetivos[0];
                 PuertaEx = PuertasExterna[0];
                 StartCoroutine("Fade2");
                 break;
             case "PisoDos":
-                Debug.Log("Mover el piso 2");
-                target = PisoDos;
+                target = objetivos[1];
                 PuertaEx = PuertasExterna[1];
                 StartCoroutine("Fade2");
                 break;
             case "PisoTres":
-                Debug.Log("Mover el piso 3");
-                target = PisoTres;
+                target = objetivos[2];
                 PuertaEx = PuertasExterna[2];
                 StartCoroutine("Fade2");
                 break;
             case "PisoCuatro":
-                Debug.Log("Mover el piso 4");
-                target = PisoCuatro;
+                target = objetivos[3];
                 PuertaEx = PuertasExterna[3];
                 StartCoroutine("Fade2");
                 break;
             case "PisoCinco":
-                Debug.Log("Mover el piso 5");
-                target = PisoCinco;
+                target = objetivos[4];
                 PuertaEx = PuertasExterna[4];
                 StartCoroutine("Fade2");
                 break;
             case "PisoSeis":
-                Debug.Log("Mover el piso 6");
-                target = PisoSeis;
+                target = objetivos[5];
                 PuertaEx = PuertasExterna[5];
                 StartCoroutine("Fade2");
                 break;
             case "PisoSiete":
-                Debug.Log("Mover el piso 7");
-                target = PisoSiete;
+                target = objetivos[6];
                 PuertaEx = PuertasExterna[6];
                 StartCoroutine("Fade2");
                 break;
             case "PisoOcho":
-                Debug.Log("Mover el piso 8");
-                target = PisoOcho;
+                target = objetivos[7];
                 PuertaEx = PuertasExterna[7];
                 StartCoroutine("Fade2");
                 break;
             case "PisoNueve":
-                Debug.Log("Mover el piso 9");
-                target = PisoNueve;
+                target = objetivos[8];
                 PuertaEx = PuertasExterna[8];
                 StartCoroutine("Fade2");
                 break;
             case "PisoDiez":
-                Debug.Log("Mover el piso 10");
-                target = PisoDiez;
+                target = objetivos[6];
                 PuertaEx = PuertasExterna[9];
                 StartCoroutine("Fade2");
-                break;
-            default:
-                Debug.Log("Este piso no existe");
                 break;
         }
     }
@@ -112,115 +100,100 @@ public class Ascensor : MonoBehaviour
         switch (seleccionVuelta)
         {
             case "Llamar1":
-                Debug.Log("Llamando 1");
                 target = LlamarUno;
                 PuertaEx = PuertasExterna[0];
                 StartCoroutine("Fade2");
                 break;
             case "Llamar2":
-                Debug.Log("Llamando 2");
                 target = LlamarDos;
                 PuertaEx = PuertasExterna[1];
                 StartCoroutine("Fade2");
                 break;
             case "Llamar3":
-                Debug.Log("Llamando 3");
                 target = LlamarTres;
                 PuertaEx = PuertasExterna[2];
                 StartCoroutine("Fade2");
                 break;
             case "Llamar4":
-                Debug.Log("Llamando 4");
                 target = LlamarCuatro;
                 PuertaEx = PuertasExterna[3];
                 StartCoroutine("Fade2");
                 break;
             case "Llamar5":
-                Debug.Log("Llamando 5");
                 target = LlamarCinco;
                 PuertaEx = PuertasExterna[4];
                 StartCoroutine("Fade2");
                 break;
             case "Llamar6":
-                Debug.Log("Llamando 6");
                 target = LlamarSeis;
                 PuertaEx = PuertasExterna[5];
                 StartCoroutine("Fade2");
                 break;
             case "Llamar7":
-                Debug.Log("Llamando 7");
                 target = LlamarSiete;
                 PuertaEx = PuertasExterna[6];
                 StartCoroutine("Fade2");
                 break;
             case "Llamar8":
-                Debug.Log("Llamando 8");
                 target = LlamarOcho;
                 PuertaEx = PuertasExterna[7];
                 StartCoroutine("Fade2");
                 break;
             case "Llamar9":
-                Debug.Log("Llamando 9");
                 target = LlamarNueve;
                 PuertaEx = PuertasExterna[8];
                 StartCoroutine("Fade2");
                 break;
             case "Llamar10":
-                Debug.Log("Llamando 10");
                 target = LlamarDiez;
                 PuertaEx = PuertasExterna[9];
                 StartCoroutine("Fade2");
-                break;
-            default:
-                Debug.Log("Este piso no existe");
                 break;
         }
     }
 
     public GameObject[] PesosEsferas;
     int iActual;
-    int pesoActual = 0;
     int pesoSiguiente = 0;
-    int pesoTotal = 0;
+    int pesoActual = 0;
 
     public void VerificarPesos()
     {
-        pesoTotal = 0;
-        for(int i = 0; i < PesosEsferas.Length; i++)
+        pesoActual = 0;
+        pesoSiguiente = 0;
+
+        for (int i = 0; i < PesosEsferas.Length; i++)
         {
             if (PesosEsferas[i].activeInHierarchy == true)
             {
-                pesoActual = (PesosEsferas[i].GetComponent<ControlarEsferas>().peso);
+                pesoActual = PesosEsferas[i].GetComponent<ControlarEsferas>().peso;
                 iActual = i;
-                //print(PesosEsferas[i] + " " + PesosEsferas[i].GetComponent<ControlarEsferas>().peso);
+                print(PesosEsferas[i] + " " + PesosEsferas[i].GetComponent<ControlarEsferas>().peso);
                 break;
             }
+
         }
-        for (int i = 0; i < PesosEsferas.Length -1; i++)
+        for (int i = 0; i < PesosEsferas.Length; i++)
         {
             if(i != iActual)
             {
-                if (PesosEsferas[i + 1] != null)
+                if (PesosEsferas[i] != null)
                 {
-                    if (PesosEsferas[i + 1].activeInHierarchy == true)
+                    if (PesosEsferas[i].activeInHierarchy == true)
                     {
-                        pesoSiguiente = PesosEsferas[i + 1].GetComponent<ControlarEsferas>().peso;
-                        //print(PesosEsferas[i + 1] + " " + PesosEsferas[i + 1].GetComponent<ControlarEsferas>().peso);
+                        pesoSiguiente = PesosEsferas[i].GetComponent<ControlarEsferas>().peso;
+                        print(PesosEsferas[i] + " " + PesosEsferas[i].GetComponent<ControlarEsferas>().peso);
+                        pesoActual += pesoSiguiente;
                     }
                 }
-                else
-                {
-                    break;
-                }
             }
-            pesoTotal = pesoActual + pesoSiguiente;
         }
-        Debug.Log("Peso total: " + pesoTotal);
+        Debug.Log("Peso total: " + pesoActual);
     }
 
     IEnumerator Fade2()
     {
-        if (pesoTotal <= 100)
+        if (pesoActual <= 50)
         {
             for (float f = 115f; f >= 0; f -= 0.1f)
             {
