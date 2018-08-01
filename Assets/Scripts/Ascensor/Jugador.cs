@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Jugador : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Jugador : MonoBehaviour
     public float rotationSpeed = 200.0F;
     public float thrust = 7;
     public Rigidbody rb;
+    public Button llamar;
 
     void Start()
     {
@@ -45,51 +47,5 @@ public class Jugador : MonoBehaviour
     void OnCollisionExit(Collision cosito)
     {
         estaEnElPiso = false;
-    }
-
-    int abdel = 0;
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Llamar1"))
-        {
-
-        }
-        if (other.gameObject.CompareTag("Llamar2"))
-        {
-
-        }
-        if (other.gameObject.CompareTag("Llamar3"))
-        {
-
-        }
-        if (other.gameObject.CompareTag("Llamar4"))
-        {
-
-        }
-        if (other.gameObject.CompareTag("Llamar5"))
-        {
-
-        }
-        if (other.gameObject.CompareTag("Llamar6"))
-        {
-
-        }
-        if (other.gameObject.CompareTag("Llamar7"))
-        {
-
-        }
-        if (other.gameObject.CompareTag("Llamar8"))
-        {
-
-        }
-        if (other.gameObject.CompareTag("Llamar9"))
-        {
-
-        }
-        if (other.gameObject.CompareTag("Llamar10"))
-        {
-
-        }
     }
 }

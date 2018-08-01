@@ -1,25 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ascensor : MonoBehaviour
 {
     public GameObject CanvasScene;
     public GameObject Puerta;
     public GameObject[] PuertasExterna;
-    //public Transform PisoUno;
-    //public Transform PisoDos;
-    //public Transform PisoTres;
-    //public Transform PisoCuatro;
-    //public Transform PisoCinco;
-    //public Transform PisoSeis;
-    //public Transform PisoSiete;
-    //public Transform PisoOcho;
-    //public Transform PisoNueve;
-    //public Transform PisoDiez;
     public Transform[] objetivos;
+    public Transform[] pisos;
     Transform target;
     GameObject PuertaEx;
+    public Text advertencia;
     public float speed;
 
     private void Start()
@@ -77,75 +70,64 @@ public class Ascensor : MonoBehaviour
                 StartCoroutine("Fade2");
                 break;
             case "PisoDiez":
-                target = objetivos[6];
+                target = objetivos[9];
                 PuertaEx = PuertasExterna[9];
                 StartCoroutine("Fade2");
                 break;
         }
     }
 
-    public Transform LlamarUno;
-    public Transform LlamarDos;
-    public Transform LlamarTres;
-    public Transform LlamarCuatro;
-    public Transform LlamarCinco;
-    public Transform LlamarSeis;
-    public Transform LlamarSiete;
-    public Transform LlamarOcho;
-    public Transform LlamarNueve;
-    public Transform LlamarDiez;
-
     public void LlamandoAscensor(string seleccionVuelta)
     { 
         switch (seleccionVuelta)
         {
             case "Llamar1":
-                target = LlamarUno;
+                target = pisos[0];
                 PuertaEx = PuertasExterna[0];
                 StartCoroutine("Fade2");
                 break;
             case "Llamar2":
-                target = LlamarDos;
+                target = pisos[1];
                 PuertaEx = PuertasExterna[1];
                 StartCoroutine("Fade2");
                 break;
             case "Llamar3":
-                target = LlamarTres;
+                target = pisos[2];
                 PuertaEx = PuertasExterna[2];
                 StartCoroutine("Fade2");
                 break;
             case "Llamar4":
-                target = LlamarCuatro;
+                target = pisos[3];
                 PuertaEx = PuertasExterna[3];
                 StartCoroutine("Fade2");
                 break;
             case "Llamar5":
-                target = LlamarCinco;
+                target = pisos[4];
                 PuertaEx = PuertasExterna[4];
                 StartCoroutine("Fade2");
                 break;
             case "Llamar6":
-                target = LlamarSeis;
+                target = pisos[5];
                 PuertaEx = PuertasExterna[5];
                 StartCoroutine("Fade2");
                 break;
             case "Llamar7":
-                target = LlamarSiete;
+                target = pisos[6];
                 PuertaEx = PuertasExterna[6];
                 StartCoroutine("Fade2");
                 break;
             case "Llamar8":
-                target = LlamarOcho;
+                target = pisos[7];
                 PuertaEx = PuertasExterna[7];
                 StartCoroutine("Fade2");
                 break;
             case "Llamar9":
-                target = LlamarNueve;
+                target = pisos[8];
                 PuertaEx = PuertasExterna[8];
                 StartCoroutine("Fade2");
                 break;
             case "Llamar10":
-                target = LlamarDiez;
+                target = pisos[9];
                 PuertaEx = PuertasExterna[9];
                 StartCoroutine("Fade2");
                 break;
@@ -218,6 +200,12 @@ public class Ascensor : MonoBehaviour
                     }
                 }
             }
+        }
+        else
+        {
+            advertencia.enabled = true;
+            yield return new WaitForSeconds(2f);
+            advertencia.enabled = false;
         }
     }
 }
